@@ -1,0 +1,37 @@
+
+  <mat-drawer-container class="dashboard-container">
+    <mat-drawer #sidenav mode="side" [mode]="'over'" style="width: 30%">
+      <mat-list>
+          <mat-list-item>
+            <mat-icon matListItemIcon>group</mat-icon>
+            <div matListItemTitle>Usuarios</div>
+          </mat-list-item>
+        <mat-divider></mat-divider>
+          <mat-list-item>
+            <mat-icon matListItemIcon>school</mat-icon>
+            <div matListItemTitle>Cursos</div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+            <mat-list-item>
+              <mat-icon matListItemIcon>logout</mat-icon>
+              <div matListItemTitle>Cerrar sesión</div>
+            </mat-list-item>          
+      </mat-list>
+    </mat-drawer>
+    <mat-drawer-content class="dashboard-container">
+        <mat-toolbar>
+            <button
+            (click)="sidenav.toggle()"
+            mat-icon-button
+            class="example-icon"
+            aria-label="Example icon-button with menu icon"
+            >
+            <mat-icon>menu</mat-icon>
+            </button>
+            <span>My App</span>
+        </mat-toolbar>
+        <div class="p-3">
+          <app-users></app-users>
+        </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
