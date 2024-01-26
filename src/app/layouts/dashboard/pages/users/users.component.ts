@@ -63,8 +63,6 @@ export class UsersComponent {
 
   add(){
     const dialogRef = this.dialog.open(UserFormComponent, {
-      width: '75%',
-      height: '50%',
       disableClose: true
     })
     dialogRef.afterClosed().subscribe(result => {
