@@ -1,0 +1,22 @@
+<div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
+    <form [formGroup]="loginForm" class="d-flex flex-column" (ngSubmit)="onSubmit()">
+       <h2 class="text-center">Inicio de sesión</h2>
+       <mat-form-field>
+           <mat-label>Correo electrónico</mat-label>
+           <input matInput formControlName="email" type="email">
+       </mat-form-field>
+       <mat-form-field>
+           <mat-label>Contraseña</mat-label>
+           <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+           </button>
+       </mat-form-field>
+       <button mat-raised-button color="primary" type="submit">Iniciar sesión</button>
+    </form>
+    
+    <div class="mb-3"></div>
+    
+    <p>Correo electrónico: jsnow&#64;mail.com</p>
+    <p>Passwprd: 123456</p>
+</div>

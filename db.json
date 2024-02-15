@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Jon",
+      "lastName": "Snow",
+      "email": "jsnow@mail.com",
+      "password": "123456",
+      "role": "ADMIN",
+      "token": "as"
+    },
+    {
+      "id": 2,
+      "firstName": "Theon",
+      "lastName": "Greyjoy",
+      "email": "tgreyjoy@mail.com",
+      "password": "123456",
+      "role": "ESTUDIANTE",
+      "token": "as"
+    },
+    {
+      "id": 3,
+      "firstName": "Stark",
+      "lastName": "Robb",
+      "email": "rstark@mail.com",
+      "password": "123456",
+      "role": "ESTUDIANTE",
+      "token": "as"
+    },
+    {
+      "id": 4,
+      "firstName": "Stark",
+      "lastName": "Sansa",
+      "email": "sstark@mail.com",
+      "password": "123456",
+      "role": "PROFESOR",
+      "token": "as"
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "nombre": "Python",
+      "horarios": "Lu-Mie-Vie 09:00 a 13:00",
+      "id_profesor": 4
+    }
+  ],
+  "inscripciones":[
+    {
+      "id_inscripcion": 1,
+      "id_estudiante": 2,
+      "id_curso": 1,
+      "fecha": "2024-02-14"
+    }
+  ]
+}

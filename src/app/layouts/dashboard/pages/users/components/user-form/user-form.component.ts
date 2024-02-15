@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, OnInit, Optional, Output } from '@angular/core';
+import { Component, Inject, Optional} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -31,6 +31,7 @@ export class UserFormComponent{
       email: this.fb.control('', Validators.required),
       password: this.fb.control('', Validators.required),
       role: this.fb.control('', Validators.required),
+      token: this.fb.control('') //supongo que en un proyecto real no recibiria el token del usuario, solo lo usaria para loguearse y comunicarse con el back
     });
     if(this.data){
       this.userForm.setValue(

@@ -1,0 +1,37 @@
+<p appTitulos20 class="p-3">Cursos</p>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+   
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let course"> {{course.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let course"> {{course.nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="horarios">
+        <th mat-header-cell *matHeaderCellDef> Horarios </th>
+        <td mat-cell *matCellDef="let course"> {{course.horarios}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="profesor">
+        <th mat-header-cell *matHeaderCellDef> Profesor </th>
+        <td mat-cell *matCellDef="let course"> {{ {firstName: course.profesor.firstName, lastName: course.profesor.lastName} | fullName }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="options">
+        <th mat-header-cell *matHeaderCellDef> Horarios </th>
+        <td mat-cell *matCellDef="let course"> {{course.horarios}} </td>
+    </ng-container>
+  
+    
+           
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+

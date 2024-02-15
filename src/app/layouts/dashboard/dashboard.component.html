@@ -1,21 +1,21 @@
 
   <mat-drawer-container class="dashboard-container">
-    <mat-drawer #sidenav mode="side" [mode]="'over'" style="width: 30%">
+    <mat-drawer #sidenav mode="side" [mode]="'over'" style="width: 30%" (click)="sidenav.toggle()">
       <mat-list>
-          <mat-list-item>
-            <mat-icon matListItemIcon>group</mat-icon>
-            <div matListItemTitle>Usuarios</div>
-          </mat-list-item>
+        <a mat-list-item routerLink="users" routerLinkActive="active" ariaCurrentWhenActive="page">
+          <mat-icon matListItemIcon>group</mat-icon>
+          <div matListItemTitle>Usuarios</div>
+        </a>          
         <mat-divider></mat-divider>
-          <mat-list-item>
+          <a mat-list-item routerLink="courses" routerLinkActive="active" ariaCurrentWhenActive="page">
             <mat-icon matListItemIcon>school</mat-icon>
             <div matListItemTitle>Cursos</div>
-          </mat-list-item>
+          </a>
           <mat-divider></mat-divider>
-            <mat-list-item>
+          <a (click)="logout()" mat-list-item>
               <mat-icon matListItemIcon>logout</mat-icon>
               <div matListItemTitle>Cerrar sesión</div>
-            </mat-list-item>          
+          </a>        
       </mat-list>
     </mat-drawer>
     <mat-drawer-content class="dashboard-container">
@@ -31,7 +31,7 @@
             <span>My App</span>
         </mat-toolbar>
         <div class="p-3">
-          <app-users></app-users>
+          <router-outlet></router-outlet>
         </div>
     </mat-drawer-content>
   </mat-drawer-container>
