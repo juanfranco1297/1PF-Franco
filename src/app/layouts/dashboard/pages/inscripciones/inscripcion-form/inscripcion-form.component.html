@@ -1,0 +1,26 @@
+<div>
+  <form [formGroup]="inscripcionForm" class="m-3 d-flex flex-column">
+
+<mat-form-field>
+    <mat-label>Usuario</mat-label>
+    <mat-select formControlName="userId">
+      @for (user of users; track $index) {
+          <mat-option value="{{user.id}}"> {{ {firstName: user.firstName, lastName: user.lastName} | fullName }} - {{user.role}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Curso</mat-label>
+    <mat-select formControlName="courseId">
+        @for (course of courses; track $index) {
+            <mat-option value="{{course.id}}">{{course.id}} - {{ course.nombre }} - {{ course.horarios}}</mat-option>
+        }
+    </mat-select>
+  </mat-form-field>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close (click)="close()">Cancelar</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="submit()">Guardar</button>
+</mat-dialog-actions>
+  </form>
+</div>  

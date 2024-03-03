@@ -2,16 +2,17 @@
   <mat-drawer-container class="dashboard-container">
     <mat-drawer #sidenav mode="side" [mode]="'over'" style="width: 30%" (click)="sidenav.toggle()">
       <mat-list>
-        <a mat-list-item routerLink="users" routerLinkActive="active" ariaCurrentWhenActive="page">
-          <mat-icon matListItemIcon>group</mat-icon>
-          <div matListItemTitle>Usuarios</div>
-        </a>          
+        @for (i of routes; track $index) {
+          <a 
+            mat-list-item 
+            routerLink="{{i.route}}" 
+            routerLinkActive="active" 
+            ariaCurrentWhenActive="page">
+          <mat-icon matListItemIcon>{{i.icon}}</mat-icon>
+          <div matListItemTitle>{{i.name}}</div>
+        </a>
         <mat-divider></mat-divider>
-          <a mat-list-item routerLink="courses" routerLinkActive="active" ariaCurrentWhenActive="page">
-            <mat-icon matListItemIcon>school</mat-icon>
-            <div matListItemTitle>Cursos</div>
-          </a>
-          <mat-divider></mat-divider>
+        }
           <a (click)="logout()" mat-list-item>
               <mat-icon matListItemIcon>logout</mat-icon>
               <div matListItemTitle>Cerrar sesión</div>
@@ -29,6 +30,10 @@
             <mat-icon>menu</mat-icon>
             </button>
             <span>My App</span>
+            <span class="example-spacer"></span>
+            <div *ngIf="authUser$ | async; let user">
+              <span>{{user.firstName}} {{user.lastName}}</span>
+            </div>
         </mat-toolbar>
         <div class="p-3">
           <router-outlet></router-outlet>

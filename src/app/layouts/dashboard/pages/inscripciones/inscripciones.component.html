@@ -1,0 +1,43 @@
+<button mat-fab color="primary" aria-label="Example icon button with a delete icon" class="fab" (click)="add()">
+    <mat-icon>add</mat-icon>
+</button>
+
+<p appTitulos20 class="p-3">Inscripciones</p>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let inscripciones"> {{inscripciones.inscripcionId}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef> Nombre y apellido </th>
+      <td mat-cell *matCellDef="let inscripciones"> {{ {firstName: inscripciones.user.firstName, lastName: inscripciones.user.lastName} | fullName }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="curso">
+      <th mat-header-cell *matHeaderCellDef> Curso </th>
+      <td mat-cell *matCellDef="let inscripciones"> {{inscripciones.course.nombre}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="horarios">
+      <th mat-header-cell *matHeaderCellDef> Horarios </th>
+      <td mat-cell *matCellDef="let inscripciones"> {{inscripciones.course.horarios}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="options">
+        <th mat-header-cell *matHeaderCellDef> Opciones </th>
+        <td mat-cell *matCellDef="let inscripciones">
+            <button mat-icon-button color="primary">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" >
+                <mat-icon>delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
