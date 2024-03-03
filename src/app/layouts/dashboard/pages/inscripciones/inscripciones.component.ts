@@ -74,7 +74,6 @@ export class InscripcionesComponent implements OnInit{
       data: data
     })
     dialogRef.afterClosed().subscribe(result => {
-     console.log(result)
       if(result){
         this.loadingService.setIsLoading(true);
         this.inscripcionesService.addInscripcion(result).subscribe({
